@@ -1,11 +1,11 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Body from './Body.jsx';
-import Login from './Login.jsx';
-import Profile from './Profile.jsx';
-import SignUp from './SignUp.jsx';
+import Body from './components/Body.jsx';
+import Login from './components/Login.jsx';
+import Profile from './components/Profile.jsx';
+import SignUp from './components/SignUp.jsx';
 import  { appStore } from './utils/appStore.js';
 import { Provider } from 'react-redux';
-import Feed from './Feed.jsx';
+import Feed from './components/Feed.jsx';
 
 function App() {
   return (
