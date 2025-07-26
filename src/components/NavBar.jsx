@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 
 const NavBar = () => {
   const user = useSelector((store) => store.user); // Accessing the user data from the Redux store
+  //console.log("Redux User:", user);
 
   return (
     <div className="navbar bg-base-100 shadow-sm">
@@ -21,9 +22,13 @@ const NavBar = () => {
               <div className="w-10 rounded-full">
                 <img
                   alt="User Photo"
-                  src={user.photoUrl} // ensure this field exists in your store
+                  src={user.photoUrl|| `https://ui-avatars.com/api/?name=${user.firstName}`} 
+                  className="w-10 rounded-full"
                 />
+              
+                
               </div>
+              <p className="text-sm font-medium">Welcome {user.firstName}</p>
             </div>
             <ul
               tabIndex={0}

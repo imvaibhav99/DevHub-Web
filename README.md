@@ -43,4 +43,26 @@ const res = await axios.post(
 ->create the userSlice.js and export it to appStore and use the reducer;
 ->Wrap all the route inside the <Provider store={ appStore }> < /Provider>
 
-->Now to add data to the redux store,we use useDispatch hook.
+->Now to add data to the redux store,we use useDispatch hook:
+<!-- import { addUser } from '../utils/userSlice.js'; -->
+<!-- dispatch(addUser(res.data)) -->
+->When entered login details and clicked login->to enter the feed route,use {useNavigate} hook from 'react-router-dom' and add navigate("/feed");
+
+->While refreshing the page after reaching feed page,the login details disappears and user gets logged out,and the datails get vanish despite the login token being there,so to resolve this issue,useEffect hook will be used.
+->Everything else except login/signup comes from the Body:
+<!-- const dispatch = useDispatch(); //to upload the data to redux store
+  const fetchUser = async () =>{
+    try{
+    const user= await axios.get(BASE_URL + "/profile/view",{
+      withCredentials:true, //for cors and token cookies
+    });
+    dispatch(addUser(user.data));
+  } catch (err){
+    console.error("Error fetching user:", err);
+  }
+    }
+    useEffect(()=>{
+      fetchUser();
+    },[]) --> Now the user remains logged in,even after refresh
+
+    

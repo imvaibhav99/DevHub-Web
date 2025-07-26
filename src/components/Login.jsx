@@ -7,8 +7,8 @@ import  BASE_URL from '../utils/constants.js';
 
 const Login = () => {
 
-const [emailId, setEmailId]= useState("ambani@gmail.com");
-const [password, setPassword]= useState("Ambani@123");
+const [emailId, setEmailId]= useState("anil@gmail.com");
+const [password, setPassword]= useState("Anil@123");
 const dispatch = useDispatch(); // Assuming you have a userSlice to handle user state,this hook will allow you to dispatch actions to update the user state in your Redux store.
 const navigate = useNavigate(); // Assuming you have react-router-dom installed, this will allow you to navigate to another page after clicking login
 
@@ -16,7 +16,7 @@ const handleLogin= async ()=>{
   try{
 const res = await axios.post(
   BASE_URL + "/login",{
-    emailId,
+    emailId,                                 
     password,
   },
   {
@@ -24,7 +24,9 @@ const res = await axios.post(
   }
 );
 dispatch(addUser(res.data)) //adds the User data on login to the redux store so that it can be accessed in other components
- navigate("/");
+ navigate("/feed");
+ console.log(res.data);
+ 
 }catch(err){
     console.error("Login failed:", err);
    
