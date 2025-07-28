@@ -65,4 +65,19 @@ const res = await axios.post(
       fetchUser();
     },[]) --> Now the user remains logged in,even after refresh
 
-    
+    ->Adding the links for navigation,use <Link to="'></Link>,for logout and profile in NavBar
+    ->Building the Logout button in the NavBar:
+
+
+    <!-- const handleLogout = async () => {
+    try {
+    const res = await axios.post(BASE_URL + "/logout",{}, { withCredentials: true });
+    console.log("Logout successful", res.data);
+    dispatch(removeUser());
+    navigate("/login");
+  } catch (err) {
+    console.error("Logout failed:", err);
+  }
+}; -->
+
+  ->For error message           {error && <p className="text-red-500 text-sm mb-2 text-center">{error}</p>}
