@@ -81,3 +81,22 @@ const res = await axios.post(
 }; -->
 
   ->For error message           {error && <p className="text-red-500 text-sm mb-2 text-center">{error}</p>}
+
+  ->Create the UserCard:
+  <!-- const UserCard = ({ user, onLike, onPass }) => {
+  if (!user) return null;
+  const {
+    firstName = "",
+    lastName = "",
+    age,
+    gender,
+    about = "No bio provided",
+    photoUrl,
+  } = user;
+
+return(
+
+); -->
+->Create EditProfile.jsx: with Form fetching user details and showing on the form and also the user card showing the user details.
+
+->Create the accepted/ignored  (❤️/❌)
