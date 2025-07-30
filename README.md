@@ -99,4 +99,6 @@ return(
 ); -->
 ->Create EditProfile.jsx: with Form fetching user details and showing on the form and also the user card showing the user details.
 
+->create a connection page and show all the connections of the user in on place
+
 ->Create the accepted/ignored  (❤️/❌)
