@@ -4,10 +4,13 @@ import { useDispatch } from 'react-redux';
 import axios from 'axios';
 import { addFeed } from '../utils/feedSlice';
 import UserCard from './UserCard'; // Ensure this is the right path
+import { removeUserFromFeed } from '../utils/feedSlice';
+import {useSelector} from "react-redux";
 
 const Feed = () => {
+
   const dispatch = useDispatch();
-  const [users, setUsers] = useState([]);
+ const users = useSelector((state) => state.feed);
 
   const getFeed = async () => {
     try {
@@ -16,7 +19,7 @@ const Feed = () => {
       });
       //console.log("Feed Response:", res.data);
       dispatch(addFeed(res.data));
-      setUsers(res.data); // Save users to state for rendering
+      // Save users to state for rendering
     } catch (err) {
       console.error("Error fetching feed:", err);
     }
