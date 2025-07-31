@@ -101,4 +101,4 @@ return(
 
 ->create a connection page and show all the connections of the user in on place
 
-->Create the accepted/ignored  (❤️/❌)
+->Create the accepted/ignored  (❤️/❌):use the redux store to fetch the data of the user and to remove the user data once ignored.Also update the feed instantly using the dispatch feature.

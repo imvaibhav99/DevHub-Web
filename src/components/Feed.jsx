@@ -34,7 +34,7 @@ const Feed = () => {
       {users.length > 0 ? (
         <UserCard user={users[0]} />
       ) : (
-        <p>Loading...</p>
+        <h1 className='"bg-white dark:bg-zinc-900 text-gray-700 dark:text-gray-100 p-6 rounded-2xl shadow-lg text-xl font-semibold text-center'>No New User Found</h1>
       )}
     </div>
   );

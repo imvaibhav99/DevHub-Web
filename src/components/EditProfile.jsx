@@ -239,7 +239,7 @@ const EditProfile = () => {
         {/* Live Preview Section */}
         <div className="w-full lg:w-1/2 space-y-6">
           <h2 className="text-2xl font-semibold text-center lg:text-left">
-            Your Peofile Card
+            Your Profile Card
           </h2>
           <UserCard user={currentUser} />
         </div>
