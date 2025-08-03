@@ -13,7 +13,7 @@ const Login = () => {
   const navigate = useNavigate();
 
   const handleLogin = async () => {
-    setError(""); // Clear previous errors
+    setError(""); 
     try {
       const res = await axios.post(
         BASE_URL + "/login",

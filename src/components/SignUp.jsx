@@ -7,10 +7,13 @@ import { addUser } from '../utils/userSlice'; // ensure correct path
 
 const SignUp = () => {
   const [formData, setFormData] = useState({
+
     firstName: '',
     lastName: '',
+    username: '',
     emailId: '',
     password: '',
+
   });
 
   const [error, setError] = useState('');
@@ -23,18 +26,14 @@ const SignUp = () => {
       [e.target.name]: e.target.value,
     }));
   };
-
   const handleSignUp = async () => {
     setError('');
     try {
       const res = await axios.post(`${BASE_URL}/signup`, formData, {
         withCredentials: true,
       });
-
       const userData = res.data;
-      // Add to Redux
       dispatch(addUser(userData.data));
-      // Navigate to /feed
       navigate('/feed');
     } catch (err) {
       console.error("Signup error:", err);
@@ -50,7 +49,7 @@ const SignUp = () => {
         <div className="card-body">
           <h2 className="text-2xl font-bold text-center mb-4">Sign Up</h2>
 
-          {['firstName', 'lastName', 'emailId', 'password'].map((field) => (
+          {['firstName', 'lastName','username', 'emailId', 'password'].map((field) => (
             <div className="form-control" key={field}>
               <label className="label">
                 <span className="label-text capitalize">{field === 'emailId' ? 'Email' : field}</span>
