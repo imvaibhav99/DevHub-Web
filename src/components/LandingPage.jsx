@@ -1,6 +1,6 @@
 import React from 'react';
 import { Heart, Code, Users, Zap, Github, Coffee, Rocket, Star } from 'lucide-react';
-
+import { Link } from 'react-router-dom';
 import CardCarousel from './CardCarousel.jsx';
 
 export default function DevHubLanding() {
@@ -24,12 +24,12 @@ export default function DevHubLanding() {
             </a>
           </div>
           <div className="flex items-center space-x-4">
-            <button className="btn btn-ghost text-white hover:backdrop-blur-lg hover:bg-white/10 transition px-4 py-2 rounded-lg">
+            <Link to="/login" className="btn btn-ghost text-white hover:backdrop-blur-lg hover:bg-white/10 transition px-4 py-2 rounded-lg">
               Login
-            </button>
-            <button className="btn border-none bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white shadow-lg px-6 py-2 rounded-lg transition-all">
+            </Link>
+            <Link to="/signup" className="btn border-none bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white shadow-lg px-6 py-2 rounded-lg transition-all">
               Sign Up
-            </button>
+            </Link>
           </div>
         </div>
       </nav>
@@ -51,14 +51,14 @@ export default function DevHubLanding() {
               </p>
             </div>
             <div className="flex flex-col sm:flex-row gap-4">
-              <button className="btn btn-lg border-none shadow-xl bg-gradient-to-r from-purple-500 to-pink-500 hover:ring-4 hover:ring-pink-300/30 hover:from-purple-600 hover:to-pink-600 text-white px-8 rounded-lg flex items-center gap-2 transition duration-150">
+              <Link to="/signup" className="btn btn-lg border-none shadow-xl bg-gradient-to-r from-purple-500 to-pink-500 hover:ring-4 hover:ring-pink-300/30 hover:from-purple-600 hover:to-pink-600 text-white px-8 rounded-lg flex items-center gap-2 transition duration-150">
                 <Heart className="w-5 h-5" />
                 Start Matching
-              </button>
-              <button className="btn btn-lg btn-outline border-purple-500 text-purple-300 hover:bg-purple-500/20 hover:text-white px-8 bg-transparent rounded-lg flex items-center gap-2 transition">
+              </Link>
+              <a href='#how-devhub-works' className="btn btn-lg btn-outline border-purple-500 text-purple-300 hover:bg-purple-500/20 hover:text-white px-8 bg-transparent rounded-lg flex items-center gap-2 transition">
                 <Code className="w-5 h-5" />
                 Learn More
-              </button>
+              </a>
             </div>
             <div className="flex items-center space-x-10 text-purple-300 mt-10">
               <div className="flex items-center space-x-2">
@@ -148,7 +148,7 @@ export default function DevHubLanding() {
       {/* How It Works */}
       <section className="container mx-auto px-6 py-20">
         <div className="text-center mb-20 max-w-4xl mx-auto">
-          <h2 className="text-4xl font-bold mb-6">How DevHub Works</h2>
+          <h2 id="how-devhub-works"  className="text-4xl font-bold mb-6">How DevHub Works</h2>
           <p className="text-xl text-gray-300">Simple, intuitive, and designed for busy developers.</p>
         </div>
         <div className="grid md:grid-cols-3 gap-10 max-w-6xl mx-auto">
@@ -183,7 +183,7 @@ export default function DevHubLanding() {
       </section>
 
       {/* Testimonials */}
-      <section className="container mx-auto px-6 py-20">
+      {/* <section className="container mx-auto px-6 py-20">
         <div className="text-center mb-16 max-w-5xl mx-auto">
           <h2 className="text-4xl font-bold text-white mb-8">Loved by Developers Worldwide</h2>
         </div>
@@ -234,7 +234,7 @@ export default function DevHubLanding() {
             </div>
           ))}
         </div>
-      </section>
+      </section> */}
 
       {/* CTA Section */}
       <section className="container mx-auto px-6 py-20">
@@ -245,13 +245,13 @@ export default function DevHubLanding() {
             Join thousands of developers who are already connecting, collaborating, and building amazing things together.
           </p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
-            <button className="btn btn-lg border-none shadow-xl bg-gradient-to-r from-purple-500 to-pink-500 hover:ring-4 hover:ring-pink-200/20 hover:from-purple-600 hover:to-pink-600 text-white px-10 rounded-lg transition-all duration-150 flex items-center gap-3">
+            <Link to="/signup" className="btn btn-lg border-none shadow-xl bg-gradient-to-r from-purple-500 to-pink-500 hover:ring-4 hover:ring-pink-200/20 hover:from-purple-600 hover:to-pink-600 text-white px-10 rounded-lg transition-all duration-150 flex items-center gap-3">
               <Heart className="w-6 h-6" />
               Sign Up Free
-            </button>
-            <button className="btn btn-lg btn-outline border-purple-500 text-purple-300 hover:bg-purple-500/10 hover:text-white px-10 bg-transparent rounded-lg transition-all duration-150">
+            </Link>
+            <Link to="/login" className="btn btn-lg btn-outline border-purple-500 text-purple-300 hover:bg-purple-500/10 hover:text-white px-10 bg-transparent rounded-lg transition-all duration-150">
               Login
-            </button>
+            </Link>
           </div>
         </div>
       </section>

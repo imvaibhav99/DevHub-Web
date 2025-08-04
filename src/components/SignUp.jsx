@@ -4,6 +4,7 @@ import BASE_URL from '../utils/constants';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { addUser } from '../utils/userSlice'; // ensure correct path
+import { Link } from 'react-router-dom';
 
 const SignUp = () => {
   const [formData, setFormData] = useState({
@@ -69,6 +70,12 @@ const SignUp = () => {
             {error && <p className="text-red-500 text-sm mb-2 text-center">{error}</p>}
             <button className="btn btn-primary" onClick={handleSignUp}>Sign Up</button>
           </div>
+           <p className="text-sm text-center mt-4">
+          Already a user?{' '}
+          <Link to="/login" className="text-blue-500 hover:underline">
+            Log in
+          </Link>
+          </p>
         </div>
       </div>
     </div>

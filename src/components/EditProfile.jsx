@@ -320,6 +320,8 @@ const [gfg, setGfg] = useState("");
         .split(",")
         .map((s) => s.trim())
         .filter(Boolean); // ignore empty
+       
+
       const payload = {
         firstName,
         lastName,
@@ -328,7 +330,6 @@ const [gfg, setGfg] = useState("");
         gender,
         age,
         skills: formattedSkills,
-        socialLinks: {
           socialLinks: {
           github,
           linkedIn,
@@ -336,8 +337,47 @@ const [gfg, setGfg] = useState("");
           leetcode,
           gfg
   }
-  }
       };
+      console.log("Payload being sent:", payload);
+const isValidProfileURL = (url, platform) => {
+  if (!url) return true; // ✅ Allow empty links
+
+  try {
+    const parsed = new URL(url);
+    const hostname = parsed.hostname.toLowerCase();
+    const pathname = parsed.pathname.toLowerCase();
+
+    switch (platform) {
+      case "github":
+        return hostname.includes("github.com") && pathname.length > 1;
+      case "linkedIn":
+        return hostname.includes("linkedin.com") && pathname.includes("/in/");
+      case "x":
+        return hostname.includes("x.com") && pathname.length > 1;
+      case "leetcode":
+        return hostname.includes("leetcode.com") && pathname.length > 1;
+      case "gfg":
+        return hostname.includes("geeksforgeeks.org") && pathname.includes("/user/");
+      default:
+        return false;
+    }
+  } catch {
+    return false;
+  }
+};
+
+
+
+// Inside handleSubmit:
+const platforms = { github, linkedIn, x, leetcode, gfg };
+for (let [platform, url] of Object.entries(platforms)) {
+  if (!isValidProfileURL(url, platform)) {
+    alert(`Invalid ${platform} URL`);
+    return;
+  }
+}
+
+
       const res = await axios.patch(`${BASE_URL}/profile/edit`, payload, {
         withCredentials: true,
       });
