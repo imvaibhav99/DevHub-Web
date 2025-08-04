@@ -49,7 +49,7 @@ import BASE_URL from '../utils/constants';
 import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 import { addFeed } from '../utils/feedSlice';
-import UserCard from './UserCard';
+import UserCard from './userCard.jsx'; // Ensure this is the right path
 
 const Feed = () => {
   const dispatch = useDispatch();
@@ -75,7 +75,8 @@ const Feed = () => {
   }, []);
 
   return (
-    <div className="min-h-screen w-full flex flex-col items-center justify-center px-2 bg-gradient-to-br from-gray-950 via-purple-950/80 to-[#120922]min-h-[65vh] flex flex-col items-center justify-center px-2 bg-gradient-to-br from-gray-950 via-purple-950/80 to-[#120922]">
+<div className="min-h-screen min-h-[65vh] w-full flex flex-col items-center justify-center px-2 bg-gradient-to-br from-gray-950 via-purple-950/80 to-[#120922]">
+
       <h1 className="text-4xl font-bold mb-8 text-center bg-gradient-to-r from-purple-300 to-pink-300 bg-clip-text text-transparent drop-shadow">
         My Feed
       </h1>

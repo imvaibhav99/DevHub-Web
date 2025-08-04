@@ -127,3 +127,9 @@ return(
 
 ->Check the version installed in your project by node -v,and then download the same version in the machine:
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash->exit->again start->nvm install 22.12.18(v)
+
+git clone (http url) ->for both frontend and the backend project
+
+-> Now build the project by running npm run build in your devhub-web terminal->it created a dist folder which compile all the files in one folder which is send for deployement.
+
+->In machine: cd DevHub-Web/->npm install( to install all the dependencies)->npm run build
