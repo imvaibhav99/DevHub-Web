@@ -102,3 +102,28 @@ return(
 ->create a connection page and show all the connections of the user in on place
 
 ->Create the accepted/ignored  (❤️/❌):use the redux store to fetch the data of the user and to remove the user data once ignored.Also update the feed instantly using the dispatch feature.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+->Deployement: 1> SIgnup 2>Launch instance > add new key pair->devhub-secret.pem 4>cd important-> chmod devhub-secret.pem -> ssh secret code -> yes-> it takes us to the terminal of our machine,now we are no longer in the desktop->important.  To exit the machine: write "exit" command.
+->You have to reconnect to the machine using the same command if you leave the terminal for a while.
+
+->Check the version installed in your project by node -v,and then download the same version in the machine:
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash->exit->again start->nvm install 22.12.18(v)

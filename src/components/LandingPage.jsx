@@ -182,61 +182,6 @@ export default function DevHubLanding() {
         </div>
       </section>
 
-      {/* Testimonials */}
-      {/* <section className="container mx-auto px-6 py-20">
-        <div className="text-center mb-16 max-w-5xl mx-auto">
-          <h2 className="text-4xl font-bold text-white mb-8">Loved by Developers Worldwide</h2>
-        </div>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          {[
-            {
-              quote: "Found my perfect coding partner through DevHub. We've built 3 projects together!",
-              user: "Sarah Chen",
-              desc: "Full Stack Developer",
-              color: "from-purple-500 to-pink-500",
-              initial: "S"
-            },
-            {
-              quote: "Amazing platform! Connected with developers who share my passion for AI and ML.",
-              user: "Marcus Johnson",
-              desc: "ML Engineer",
-              color: "from-blue-500 to-cyan-500",
-              initial: "M"
-            },
-            {
-              quote: "Great for finding mentors and mentees. The skill matching is spot on!",
-              user: "Alex Rivera",
-              desc: "Senior Developer",
-              color: "from-green-500 to-emerald-500",
-              initial: "A"
-            },
-          ].map((t, i) => (
-            <div key={i} className="card bg-white/10 border border-white/10 shadow-xl backdrop-blur-xl transition-transform hover:-translate-y-2 hover:shadow-2xl rounded-3xl">
-              <div className="card-body p-8">
-                <div className="flex items-center mb-4">
-                  {[...Array(5)].map((_, j) => (
-                    <Star key={j} className="w-5 h-5 text-yellow-400 fill-current" />
-                  ))}
-                </div>
-                <p className="text-gray-200 mb-4">{t.quote}</p>
-                <div className="flex items-center">
-                  <div className={`avatar placeholder mr-3`}>
-                    <div className={`bg-gradient-to-r ${t.color} text-neutral-content rounded-full w-10 h-10 shadow-lg flex items-center justify-center`}>
-                      <span className="text-white font-bold">{t.initial}</span>
-                    </div>
-                  </div>
-                  <div>
-                    <p className="font-semibold">{t.user}</p>
-                    <p className="text-gray-400 text-sm">{t.desc}</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section> */}
-
-      {/* CTA Section */}
       <section className="container mx-auto px-6 py-20">
         <div className="bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-3xl p-12 text-center backdrop-blur-md border border-purple-500/30 shadow-2xl max-w-4xl mx-auto">
           <Rocket className="w-16 h-16 text-purple-300 mx-auto mb-6" />

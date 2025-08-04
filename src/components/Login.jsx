@@ -4,6 +4,8 @@ import { useDispatch } from 'react-redux';
 import { addUser } from '../utils/userSlice.js';
 import { useNavigate } from 'react-router-dom';
 import BASE_URL from '../utils/constants.js';
+import { Link } from 'react-router-dom';
+
 
 const Login = () => {
   const [emailId, setEmailId] = useState("anil@gmail.com");
@@ -59,6 +61,12 @@ const Login = () => {
             {error && <p className="text-red-500 text-sm mb-2 text-center">{error}</p>}
             <button className="btn btn-primary" onClick={handleLogin}>Login</button>
           </div>
+            <p className="text-sm text-center mt-4">
+          New to DevHub?{' '}
+          <Link to="/signup" className="text-blue-500 hover:underline">
+            Sign Up
+          </Link>
+          </p>
         </div>
       </div>
     </div>
