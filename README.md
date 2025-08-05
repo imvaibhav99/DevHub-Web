@@ -122,7 +122,7 @@ return(
 
 
 
-->Deployement: 1> SIgnup 2>Launch instance > add new key pair->devhub-secret.pem 4>cd important-> chmod devhub-secret.pem -> ssh secret code -> yes-> it takes us to the terminal of our machine,now we are no longer in the desktop->important.  To exit the machine: write "exit" command.
+->Deployement: 1> Signup 2>Launch instance > add new key pair->devhub-secret.pem 4>cd important-> chmod devhub-secret.pem -> ssh secret code -> yes-> it takes us to the terminal of our machine,now we are no longer in the desktop->important.  To exit the machine: write "exit" command.
 ->You have to reconnect to the machine using the same command if you leave the terminal for a while.
 
 ->Check the version installed in your project by node -v,and then download the same version in the machine:
@@ -132,4 +132,8 @@ git clone (http url) ->for both frontend and the backend project
 
 -> Now build the project by running npm run build in your devhub-web terminal->it created a dist folder which compile all the files in one folder which is send for deployement.
 
-->In machine: cd DevHub-Web/->npm install( to install all the dependencies)->npm run build
+->In machine:for FRONTEND:  cd DevHub-Web/->npm install( to install all the dependencies)->npm run build->sudo apt update->sudo apt install nginx->sudo systemctl start nginx->sudo systemctl enable  nginx->sudo scp -r dist/* /var/www/html/ (copy dist file to var/www/html) 
+->Go to security groups->add http ->port 80 for nginx->open public ip address from aws.
+In this way the frontend is deployed.
+
+
