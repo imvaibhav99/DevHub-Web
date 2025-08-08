@@ -122,6 +122,7 @@
 // export default Feed;
 
 
+
 import React, { useEffect, useState } from 'react';
 import BASE_URL from '../utils/constants';
 import { useDispatch, useSelector } from 'react-redux';
@@ -155,8 +156,8 @@ const Feed = () => {
   const currentUser = users[0]; // Display only the top user in Tinder-style; actions in UserCard remove it from Redux feed to reveal the next
 
   return (
-    <div className="min-h-screen min-h-[65vh] w-full flex flex-col items-center justify-center px-2 bg-gradient-to-br from-gray-950 via-purple-950/80 to-[#120922]">
-      <h1 className="text-4xl font-bold mb-8 text-center bg-gradient-to-r from-purple-300 to-pink-300 bg-clip-text text-transparent drop-shadow">
+    <div className="min-h-screen w-full flex flex-col items-center bg-gradient-to-br from-gray-950 via-purple-950/80 to-[#120922] pt-20">
+      <h1 className="text-4xl font-bold mb-12 text-center bg-gradient-to-r from-purple-300 to-pink-300 bg-clip-text text-transparent drop-shadow">
         My Feed
       </h1>
 
@@ -166,11 +167,11 @@ const Feed = () => {
           <span className="text-purple-200 text-lg animate-pulse">Fetching your dev matches...</span>
         </div>
       ) : currentUser ? (
-        <div className="animate-fade-in-up flex flex-col gap-6 w-full max-w-2xl">
+        <div className="animate-fade-in-up flex flex-col items-center gap-6 w-full max-w-2xl mx-auto">
           <UserCard user={currentUser} />
         </div>
       ) : (
-        <div className="flex flex-col items-center justify-center p-8 rounded-2xl bg-white/10 backdrop-blur-md shadow-lg mt-12">
+        <div className="flex flex-col items-center justify-center p-8 rounded-2xl bg-white/10 backdrop-blur-md shadow-lg">
           <svg width="64" height="64" fill="none" className="mb-4 text-purple-300" viewBox="0 0 24 24">
             <path fill="currentColor" d="M17.5 2a2.5 2.5 0 110 5 2.5 2.5 0 010-5zM6.5 2a2.5 2.5 0 110 5 2.5 2.5 0 010-5zM21 20.875C21 18.657 16.107 17 12 17s-9 1.657-9 3.875C3 22.142 5.927 23 12 23c6.073 0 9-.858 9-2.125zm1-14.25c0-2.338-7-3.625-10-3.625S2 4.287 2 6.625c0 1.012 1.424 1.985 4.133 2.56a15.033 15.033 0 00.647 2.095C3.606 11.763 2 13.198 2 15c0 2.138 5.286 3.875 10 3.875s10-1.737 10-3.875c0-1.802-1.606-3.237-4.78-4.72.19-.633.444-1.388.647-2.095C21.576 8.61 23 7.637 23 6.625z" />
           </svg>

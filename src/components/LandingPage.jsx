@@ -5,10 +5,11 @@ import CardCarousel from './CardCarousel.jsx';
 
 export default function DevHubLanding() {
 const carouselImages = [
-  { src: "https://source.unsplash.com/800x400/?technology", alt: "Technology" },
-  { src: "https://source.unsplash.com/800x400/?coding", alt: "Coding" },
-  { src: "https://source.unsplash.com/800x400/?developer", alt: "Developer" },
+  { src: "/card/card1.png", alt: "Profile 1" },
+  { src: "/card/card2.png", alt: "Profile 2" },
+  { src: "/card/card3.png", alt: "Profile 3" },
 ];
+
 
 
   return (
