@@ -136,4 +136,11 @@ git clone (http url) ->for both frontend and the backend project
 ->Go to security groups->add http ->port 80 for nginx->open public ip address from aws.
 In this way the frontend is deployed.
 
+-> Whenever any changes are commited to the repositories, it should also be commited to build server through the machine
 
+After following steps to deploy the backend,change the constants BASE_URL: /api
+
+
+const BASE_URL = "/api";
+export default BASE_URL;
+ 
