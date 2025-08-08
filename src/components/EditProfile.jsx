@@ -249,8 +249,6 @@
 // };
 
 // export default EditProfile;
-
-
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
@@ -277,11 +275,10 @@ const EditProfile = () => {
   const [age, setAge] = useState("");
   const [skills, setSkills] = useState(""); // comma string
   const [github, setGithub] = useState("");
-const [linkedIn, setLinkedIn] = useState("");
-const [x, setX] = useState("");
-const [leetcode, setLeetcode] = useState("");
-const [gfg, setGfg] = useState("");
-
+  const [linkedIn, setLinkedIn] = useState("");
+  const [x, setX] = useState("");
+  const [leetcode, setLeetcode] = useState("");
+  const [gfg, setGfg] = useState("");
 
   useEffect(() => {
     const fetchUserProfile = async () => {
@@ -304,7 +301,6 @@ const [gfg, setGfg] = useState("");
         setX(data?.socialLinks?.x || "");
         setLeetcode(data?.socialLinks?.leetcode || "");
         setGfg(data?.socialLinks?.gfg || "");
-
       } catch (err) {
         console.error("Error fetching profile:", err);
       }
@@ -312,81 +308,89 @@ const [gfg, setGfg] = useState("");
     fetchUserProfile();
   }, [dispatch]);
 
+  const isValidProfileURL = (url, platform) => {
+    if (!url) return true; // Allow empty links
+    try {
+      const parsed = new URL(url);
+      const hostname = parsed.hostname.toLowerCase();
+      const pathname = parsed.pathname.toLowerCase();
+      switch (platform) {
+        case "github":
+          return hostname.includes("github.com") && pathname.length > 1;
+        case "linkedIn":
+          return hostname.includes("linkedin.com") && pathname.includes("/in/");
+        case "x":
+          return hostname.includes("x.com") && pathname.length > 1;
+        case "leetcode":
+          return hostname.includes("leetcode.com") && pathname.length > 1;
+        case "gfg":
+          return hostname.includes("geeksforgeeks.org") && pathname.includes("/user/");
+        default:
+          return false;
+      }
+    } catch {
+      return false;
+    }
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try {
-      // Clean up skills: string -> array of trimmed skills
-      const formattedSkills = skills
-        .split(",")
-        .map((s) => s.trim())
-        .filter(Boolean); // ignore empty
-       
+    setErrorMsg("");
+    setSuccessMsg("");
 
-      const payload = {
-        firstName,
-        lastName,
-        photoUrl,
-        about,
-        gender,
-        age,
-        skills: formattedSkills,
-          socialLinks: {
-          github,
-          linkedIn,
-          x,
-          leetcode,
-          gfg
-  }
-      };
-      console.log("Payload being sent:", payload);
-const isValidProfileURL = (url, platform) => {
-  if (!url) return true; // ✅ Allow empty links
-
-  try {
-    const parsed = new URL(url);
-    const hostname = parsed.hostname.toLowerCase();
-    const pathname = parsed.pathname.toLowerCase();
-
-    switch (platform) {
-      case "github":
-        return hostname.includes("github.com") && pathname.length > 1;
-      case "linkedIn":
-        return hostname.includes("linkedin.com") && pathname.includes("/in/");
-      case "x":
-        return hostname.includes("x.com") && pathname.length > 1;
-      case "leetcode":
-        return hostname.includes("leetcode.com") && pathname.length > 1;
-      case "gfg":
-        return hostname.includes("geeksforgeeks.org") && pathname.includes("/user/");
-      default:
-        return false;
+    // Basic required field validation
+    if (!firstName || !lastName || !age) {
+      setErrorMsg("Please fill in required fields: First Name, Last Name, and Age.");
+      return;
     }
-  } catch {
-    return false;
-  }
-};
 
+    // URL validation
+    const platforms = { github, linkedIn, x, leetcode, gfg };
+    for (let [platform, url] of Object.entries(platforms)) {
+      if (!isValidProfileURL(url, platform)) {
+        setErrorMsg(`Invalid ${platform.charAt(0).toUpperCase() + platform.slice(1)} URL. Please check and try again.`);
+        return;
+      }
+    }
 
+    // Format skills
+    const formattedSkills = skills
+      .split(",")
+      .map((s) => s.trim())
+      .filter(Boolean);
 
-// Inside handleSubmit:
-const platforms = { github, linkedIn, x, leetcode, gfg };
-for (let [platform, url] of Object.entries(platforms)) {
-  if (!isValidProfileURL(url, platform)) {
-    alert(`Invalid ${platform} URL`);
-    return;
-  }
-}
+    const payload = {
+      firstName,
+      lastName,
+      photoUrl,
+      about,
+      gender,
+      age,
+      skills: formattedSkills,
+      socialLinks: { github, linkedIn, x, leetcode, gfg }
+    };
 
-
+    try {
       const res = await axios.patch(`${BASE_URL}/profile/edit`, payload, {
         withCredentials: true,
+        headers: { "Content-Type": "application/json" } // Explicitly set for safety
       });
-      setErrorMsg("");
       setSuccessMsg("Profile updated successfully.");
       setTimeout(() => setSuccessMsg(""), 2500);
     } catch (err) {
-      const message = err?.response?.data || "Something went wrong. Please try again.";
+      let message = "Something went wrong. Please try again.";
+      if (err.response) {
+        // Server responded with status code (e.g., 400, 401)
+        message = err.response.data?.message || `Server error: ${err.response.status} - ${err.response.statusText}`;
+      } else if (err.request) {
+        // Request was made but no response (e.g., network issue)
+        message = "Network error: No response from server. Check your connection.";
+      } else {
+        // Other errors (e.g., Axios setup)
+        message = err.message || "Request setup error.";
+      }
       setErrorMsg(message);
+      console.error("Detailed error:", err); // For debugging
     }
   };
 
@@ -574,17 +578,6 @@ for (let [platform, url] of Object.entries(platforms)) {
                   />
                 </div>
               </div>
-
-                            {/* 
-                            // Show as "pills" below, for advanced UX (optional)
-                            <div className="flex flex-wrap mt-2 gap-2">
-                              {skillsArray.map(skill =>
-                                <span key={skill} className="bg-purple-800 bg-opacity-40 text-purple-200 px-2 py-1 rounded-full text-xs font-semibold border border-purple-400/20 shadow">
-                                  {skill}
-                                </span>
-                )}
-              </div>
-              */}
             </div>
           </div>
 
@@ -630,7 +623,7 @@ for (let [platform, url] of Object.entries(platforms)) {
 
         {/* Live Preview Section */}
         <div className="w-full lg:w-1/2 flex flex-col justify-center items-center space-y-8">
-          <h2 className="text-3xl font-semibol text-center mb-2 bg-gradient-to-r from-purple-200 to-pink-200 bg-clip-text text-transparent tracking-tight drop-shadow">
+          <h2 className="text-3xl font-semibold text-center mb-2 bg-gradient-to-r from-purple-200 to-pink-200 bg-clip-text text-transparent tracking-tight drop-shadow">
             Live Profile Preview
           </h2>
           <div className="transition-transform duration-500 animate-slideup">
@@ -639,7 +632,7 @@ for (let [platform, url] of Object.entries(platforms)) {
         </div>
       </div>
 
-      {/* Advanced slide-in/fade classes (add to Tailwind config or via css) */}
+      {/* Advanced slide-in/fade classes */}
       <style>{`
         .animate-slidein {
           animation: slidein 0.4s cubic-bezier(.5,1.8,.5,1) both;
