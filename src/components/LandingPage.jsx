@@ -4,11 +4,12 @@ import { Link } from 'react-router-dom';
 import CardCarousel from './CardCarousel.jsx';
 
 export default function DevHubLanding() {
-  const carouselImages = [
-    { src: "/card/1.png", alt: "Image 1" },
-    { src: "/card/2.png", alt: "Image 2" },
-    { src: "/card/3.png", alt: "Image 3" },
-  ];
+const carouselImages = [
+  { src: "https://source.unsplash.com/800x400/?technology", alt: "Technology" },
+  { src: "https://source.unsplash.com/800x400/?coding", alt: "Coding" },
+  { src: "https://source.unsplash.com/800x400/?developer", alt: "Developer" },
+];
+
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#17162a] via-purple-900 to-slate-950 text-white relative">

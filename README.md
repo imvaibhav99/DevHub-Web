@@ -132,7 +132,7 @@ git clone (http url) ->for both frontend and the backend project
 
 -> Now build the project by running npm run build in your devhub-web terminal->it created a dist folder which compile all the files in one folder which is send for deployement.
 
-->In machine:for FRONTEND:  cd DevHub-Web/->npm install( to install all the dependencies)->npm run build->sudo apt update->sudo apt install nginx->sudo systemctl start nginx->sudo systemctl enable  nginx->sudo scp -r dist/* /var/www/html/ (copy dist file to var/www/html) 
+->In machine:for FRONTEND:  cd DevHub-Web/->npm install( to install all the dependencies)->npm run build->sudo apt update->sudo apt install nginx->sudo systemctl start nginx->sudo systemctl enable  nginx->sudo scp -r dist/* /var/www/html(copy dist file to var/www/html) 
 ->Go to security groups->add http ->port 80 for nginx->open public ip address from aws.
 In this way the frontend is deployed.
 
@@ -143,4 +143,5 @@ After following steps to deploy the backend,change the constants BASE_URL: /api
 
 const BASE_URL = "/api";
 export default BASE_URL;
+Then pull as git pull on machine,then again: npm run build -> 
  
