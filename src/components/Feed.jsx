@@ -39,8 +39,9 @@
 //     </div>
 //   );
 // };
-
 // export default Feed;
+
+
 
 
 
@@ -49,7 +50,7 @@ import BASE_URL from '../utils/constants';
 import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 import { addFeed } from '../utils/feedSlice';
-import UserCard from './userCard.jsx'; // Ensure this is the right path
+import UserCard from './userCard.jsx';
 
 const Feed = () => {
   const dispatch = useDispatch();
@@ -75,8 +76,7 @@ const Feed = () => {
   }, []);
 
   return (
-<div className="min-h-screen min-h-[65vh] w-full flex flex-col items-center justify-center px-2 bg-gradient-to-br from-gray-950 via-purple-950/80 to-[#120922]">
-
+    <div className="min-h-screen min-h-[65vh] w-full flex flex-col items-center justify-center px-2 bg-gradient-to-br from-gray-950 via-purple-950/80 to-[#120922]">
       <h1 className="text-4xl font-bold mb-8 text-center bg-gradient-to-r from-purple-300 to-pink-300 bg-clip-text text-transparent drop-shadow">
         My Feed
       </h1>
@@ -87,8 +87,10 @@ const Feed = () => {
           <span className="text-purple-200 text-lg animate-pulse">Fetching your dev matches...</span>
         </div>
       ) : users?.length > 0 ? (
-        <div className="animate-fade-in-up">
-          <UserCard user={users[0]} />
+        <div className="animate-fade-in-up flex flex-col gap-6 w-full max-w-2xl">
+          {users.map((user) => (
+            <UserCard key={user._id || user.id} user={user} />
+          ))}
         </div>
       ) : (
         <div className="flex flex-col items-center justify-center p-8 rounded-2xl bg-white/10 backdrop-blur-md shadow-lg mt-12">
@@ -103,6 +105,7 @@ const Feed = () => {
           </p>
         </div>
       )}
+
       <style>{`
         .animate-fade-in-up {
           animation: fade-in-up .66s cubic-bezier(.32,1.1,.36,1) both;
@@ -111,11 +114,9 @@ const Feed = () => {
           from { opacity: 0; transform: translateY(32px);}
           to   { opacity: 1; transform: translateY(0);}
         }
-      `}
-      </style>
+      `}</style>
     </div>
   );
 };
 
 export default Feed;
-
