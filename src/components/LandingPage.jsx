@@ -3,6 +3,7 @@ import { Heart, Code, Users, Zap, Github, Coffee, Rocket, Star } from 'lucide-re
 import { Link } from 'react-router-dom';
 import CardCarousel from './CardCarousel.jsx';
 
+
 export default function DevHubLanding() {
 const carouselImages = [
   { src: "/card/card1.png", alt: "Profile 1" },

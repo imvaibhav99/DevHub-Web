@@ -37,10 +37,10 @@ export const CardCarousel = ({
       <style>{css}</style>
       <div className="mx-auto w-full max-w-4xl rounded-3xl border border-black/5 p-2 shadow-lg bg-neutral-800/70 backdrop-blur-md relative">
         {/* Badge */}
-        <div className="absolute left-5 top-6 flex items-center gap-1 rounded-lg px-3 py-1 text-base bg-white/10 border border-black/10 shadow-sm z-10">
+        {/* <div className="absolute left-5 top-6 flex items-center gap-1 rounded-lg px-3 py-1 text-base bg-white/10 border border-black/10 shadow-sm z-10">
           <SparklesIcon className="fill-pink-400 stroke-1" />
           Latest Component
-        </div>
+        </div> */}
         <div className="mb-6 pt-10 px-8">
           <h3 className="text-4xl font-bold tracking-tight">Card Carousel</h3>
           <p className="text-gray-300 mt-2">Seamless image carousel with smooth coverflow animation.</p>

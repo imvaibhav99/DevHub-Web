@@ -145,8 +145,3 @@ const BASE_URL = "/api";
 export default BASE_URL;
 Then pull as git pull on machine,then again: npm run build -> nd other processes followed previously
 
-
-Now to use amazon email service:ses:
- 
-
-
