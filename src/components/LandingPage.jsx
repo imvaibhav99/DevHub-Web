@@ -79,7 +79,7 @@ const carouselImages = [
           <div className="relative flex flex-col items-center gap-8">
             {/* Main hero image */}
             <img
-              src="/card/developer console.png"
+              src="/card/developerconsole.png"
               alt="DevHub matching interface"
               width={500}
               height={600}
