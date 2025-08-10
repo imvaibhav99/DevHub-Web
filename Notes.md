@@ -145,3 +145,9 @@ const BASE_URL = "/api";
 export default BASE_URL;
 Then pull as git pull on machine,then again: npm run build -> nd other processes followed previously
 
+After applying the dotenv file and changes and backend,edit your constants.js: 
+const BASE_URL = import.meta.env.PROD
+  ? "/api"
+  : "http://localhost:7777";
+
+export default BASE_URL;

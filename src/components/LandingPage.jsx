@@ -66,11 +66,11 @@ const carouselImages = [
             <div className="flex items-center space-x-10 text-purple-300 mt-10">
               <div className="flex items-center space-x-2">
                 <Users className="w-5 h-5" />
-                <span>10K+ Developers</span>
+                {/* <span>10K+ Developers</span> */}
               </div>
               <div className="flex items-center space-x-2">
                 <Zap className="w-5 h-5" />
-                <span>500+ Matches Daily</span>
+                {/* <span>500+ Matches Daily</span> */}
               </div>
             </div>
           </div>
@@ -79,7 +79,7 @@ const carouselImages = [
           <div className="relative flex flex-col items-center gap-8">
             {/* Main hero image */}
             <img
-              src="https://placehold.co/500x600/1a1a2e/ffffff?text=Developer+Matching+Interface"
+              src="/card/developer console.png"
               alt="DevHub matching interface"
               width={500}
               height={600}
