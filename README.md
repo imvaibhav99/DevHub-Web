@@ -1,7 +1,7 @@
 DevHub Frontend:
 DevHub is the frontend application for a developer matching platform, inspired by social apps like Tinder but tailored for developers. It provides an intuitive user interface for creating profiles, browsing feeds, editing details, sending requests, and more. This frontend integrates with the DevHub backend to deliver a seamless experience.
 
-Live Demo: http://16.171.33.78/
+Live Demo: http://devhub-web.duckdns.org/
 
 Features
 User authentication and session management (login/signup/logout)
@@ -15,8 +15,6 @@ Sending interest or ignore requests to other users
 Social link validation and storage (GitHub, LinkedIn, X, LeetCode, GFG)
 
 Error handling and validation for user inputs
-
-Payment Integration (for premium features like boosted profiles)
 
 Real-time messaging (for matched users to chat)
 
@@ -36,7 +34,7 @@ Icons: Lucide React
 
 Routing: React Router
 
-Other Libraries: React Intersection Observer (for infinite scrolling), Socket.IO (for real-time messaging), Stripe (for payment integration)
+Other Libraries: React Intersection Observer (for infinite scrolling), Socket.IO (for real-time messaging)
 
 Build Tool: Vite
 
@@ -59,7 +57,6 @@ npm install
 Set up environment variables: Create a .env file in the root directory with the following:
 
 VITE_BASE_URL=http://your-backend-url (e.g., http://localhost:5000)
-VITE_STRIPE_PUBLIC_KEY=your_stripe_public_key
 Running the Application
 Start the development server:
 
