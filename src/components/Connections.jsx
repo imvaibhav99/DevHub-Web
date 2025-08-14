@@ -62,6 +62,7 @@ import axios from 'axios';
 import BASE_URL from '../utils/constants';
 import { useDispatch, useSelector } from 'react-redux';
 import { addConnections } from '../utils/connectionSlice';
+import { Link } from 'react-router-dom';
 
 const AVATAR_FALLBACK =
   "https://raw.githubusercontent.com/vaibhavkachare/dark-avatar/main/dark-profile.png";
@@ -142,11 +143,15 @@ const Connections = () => {
                           {conn.gender}
                         </span>
                       )}
+                      
                     </div>
                     <p className="mt-2 text-sm text-purple-100 italic max-w-xl truncate">
                       {conn.about || "No bio available"}
                     </p>
+                    
                   </div>
+                  <Link to={"/chat/"+ conn._id}><button className="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg" >Chat</button>
+                  </Link>
                 </div>
               </div>
             );

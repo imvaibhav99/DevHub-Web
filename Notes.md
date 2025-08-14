@@ -151,3 +151,33 @@ const BASE_URL = import.meta.env.PROD
   : "http://localhost:7777";
 
 export default BASE_URL;
+
+
+
+
+
+# websocket (real time chatting using socket.io)
+->refer the socket.io documentation
+->Build the Chat.jsx and route it in app.js
+->Install npm i socket.io in backend then refer to the notes of backend to integrate Server side of socket.io.
+
+After that->npm i socket.io-client in frontend:
+create socket.io in utils:
+<!-- import { io } from "socket.io-client";
+import BASE_URL from "./constants";
+
+export const createSocketConnection=()=>{
+    return io(BASE_URL);      //connecting to the server
+} -->
+
+In Chat.jsx:
+as soon as the page loads,socket connection is made and the joinChat is emmitted(from backend )
+  <!-- useEffect(() => {
+    const socket= createSocketConnection(); 
+    socket.emit('joinChat', {userId,targetUserId}); 
+
+    return()=>{
+        socket.disconnect(); // Clean up on unmount
+    }
+  },[]) -->
+    

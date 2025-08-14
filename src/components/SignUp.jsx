@@ -35,7 +35,7 @@ const SignUp = () => {
       });
       const userData = res.data;
       dispatch(addUser(userData.data));
-      navigate('/feed');
+      navigate('/profile');
     } catch (err) {
       console.error("Signup error:", err);
       setError(err.response?.data || 'Signup failed. Please try again.');

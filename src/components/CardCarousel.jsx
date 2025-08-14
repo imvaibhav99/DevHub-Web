@@ -43,7 +43,6 @@ export const CardCarousel = ({
         </div> */}
         <div className="mb-6 pt-10 px-8">
           <h3 className="text-4xl font-bold tracking-tight">Card Carousel</h3>
-          <p className="text-gray-300 mt-2">Seamless image carousel with smooth coverflow animation.</p>
         </div>
 
         <Swiper

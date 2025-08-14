@@ -50,6 +50,8 @@ import Feed from './components/Feed.jsx';
 import DevHubLanding from './components/LandingPage.jsx';
 import Connections from './components/Connections.jsx';
 import Requests from './components/Requests.jsx';
+import Chat from './components/Chat.jsx';
+
 
 function App() {
   return (
@@ -65,6 +67,7 @@ function App() {
             <Route path='feed' element={<Feed />} />
             <Route path='connections' element={<Connections />} />
             <Route path='requests' element={<Requests />} />
+            <Route path='chat/:targetUserId' element={<Chat />} />
           </Route>
 
           {/* Independent routes */}
