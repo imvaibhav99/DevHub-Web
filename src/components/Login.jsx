@@ -8,8 +8,8 @@ import { Link } from 'react-router-dom';
 
 
 const Login = () => {
-  const [emailId, setEmailId] = useState("anil@gmail.com");
-  const [password, setPassword] = useState("Anil@123");
+  const [emailId, setEmailId] = useState("");
+  const [password, setPassword] = useState("");
   const [error, setError] = useState('');
   const dispatch = useDispatch();
   const navigate = useNavigate();
